@@ -1,0 +1,25 @@
+# Program Title: Project 1: One Stop Insurance Company
+# Program Description: This program allows users to enter and calculate new insurance policy infomration for its customers.
+# Written By: Vanessa Rice
+# Written on: July 18, 2023
+
+# Open the defaults file and read the values into variables
+f = open('OSICDef.dat', 'r')
+NEXT_POLICY_NUM = int(f.readline())
+BASIC_PREMIUM = float(f.readline())
+DISCOUNT_RATE_ADDT = float(f.readline())
+COST_EXTRA_LIABILITY = float(f.readline())
+COST_GLASS_COVERAGE = float(f.readline())
+COST_LOANER_CAR = float(f.readline())
+HST_RATE = float(f.readline())
+PROCESSING_FEE = float(f.readline())
+f.close()
+
+print(NEXT_POLICY_NUM)
+print(BASIC_PREMIUM)
+print(DISCOUNT_RATE_ADDT)
+print(COST_EXTRA_LIABILITY)
+print(COST_GLASS_COVERAGE)
+print(COST_LOANER_CAR)
+print(HST_RATE)
+print(PROCESSING_FEE)
