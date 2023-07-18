@@ -4,6 +4,7 @@
 # Written on: July 18, 2023
 
 # Open the defaults file and read the values into variables
+'''
 f = open('OSICDef.dat', 'r')
 NEXT_POLICY_NUM = int(f.readline())
 BASIC_PREMIUM = float(f.readline())
@@ -14,12 +15,83 @@ COST_LOANER_CAR = float(f.readline())
 HST_RATE = float(f.readline())
 PROCESSING_FEE = float(f.readline())
 f.close()
+'''
 
-print(NEXT_POLICY_NUM)
-print(BASIC_PREMIUM)
-print(DISCOUNT_RATE_ADDT)
-print(COST_EXTRA_LIABILITY)
-print(COST_GLASS_COVERAGE)
-print(COST_LOANER_CAR)
-print(HST_RATE)
-print(PROCESSING_FEE)
+# Main Program
+while True:
+    while True:
+        allowed_char = set("ABCDEFGHIJKLMONPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz-'")
+        CusFirstName = input("Enter the customer's first name: ").title()
+        if CusFirstName == "":
+            print("Error - Customer's first name cannot be blank.")
+        elif not set(CusFirstName).issubset(allowed_char):
+            print("Error - Customer's first name contains invalid characters.")
+        else:
+            break
+    if CusFirstName == "End":
+        break
+    
+    while True:
+        allowed_char = set("ABCDEFGHIJKLMONPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz-'")
+        CusLastName = input("Enter the customer's last name: ")
+        if CusLastName == "":
+            print("Error - Customer's last name  cannot be blank.")
+        elif not set(CusLastName).issubset(allowed_char):
+            print("Error - Customer's last name contains invalid characters.")
+        else:
+            break
+
+    CusStAdd = input("Enter customer's street address: ").title()
+    CusCity = input("Enter the city: ").title()
+
+    while True:
+        allowed_letters = set("ABCDEFGHIJKLMONPQRSTUVWXYZ")
+        allowed_numbers = set("0123456789")
+        Postal = input("Enter the postal code (L0L0L0): ").upper()
+        if Postal == "":
+            print("Error - Postal code cannot be blank.")
+        elif len(Postal) != 6:
+            print("Error - Postal code must be 6 characters.")
+        elif not set(Postal[0]).issubset(allowed_letters):
+            print("Error - First character in the postal code must be a letter.")
+        elif not set(Postal[2]).issubset(allowed_letters):
+            print("Error - Third character in the postal code must be a letter.")
+        elif not set(Postal[4]).issubset(allowed_letters):
+            print("Error - Fifth character in the postal code must be a letter.")
+        elif not set(Postal[1]).issubset(allowed_numbers):
+            print("Error - Second character in the postal code must be a number.")
+        elif not set(Postal[3]).issubset(allowed_numbers):
+            print("Error - Forth character in the postal code must be a number.")
+        elif not set(Postal[3]).issubset(allowed_numbers):
+            print("Error - Sixth character in the postal code must be a number.")
+        else:
+            break
+
+    valid_provinces = ["AB", "BC", "MB", "NB", "NL", "NT", "NS", "NU", "ON", "PE", "QB", "SK", "YK"]
+
+    while True:
+        CusProv = input("Enter the province(XX): ").upper()
+        if CusProv not in valid_provinces:
+            print("Error - Province is invalid.")
+        else:
+            break
+
+    while True: 
+        CusPhoneNum = input("Enter the phone number (999999999): ")
+        if CusPhoneNum == "":
+            print("Error - Phone number cannot be blank.")
+        elif len(CusPhoneNum) != 10:
+            print("Error - Phone number must be 10 digits.")
+        elif not CusPhoneNum.isdigit(): 
+            print("Error - Phone number must be 10 digits.")
+        else:
+            break
+
+
+    NumCars = int(input("Enter number of cars being insured: "))
+    OptLiability = input("Enter Y or N for extra liability up to $1,000,000: ").upper()
+    GlassCoverage = input("Enter Y or N for glass coverage: ").upper()
+    OptLoaner = input("Enter Y or N for loaner car: ").upper()
+
+
+   
