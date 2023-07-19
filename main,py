@@ -4,7 +4,7 @@
 # Written on: July 18, 2023
 
 # Open the defaults file and read the values into variables
-'''
+
 f = open('OSICDef.dat', 'r')
 NEXT_POLICY_NUM = int(f.readline())
 BASIC_PREMIUM = float(f.readline())
@@ -15,7 +15,7 @@ COST_LOANER_CAR = float(f.readline())
 HST_RATE = float(f.readline())
 PROCESSING_FEE = float(f.readline())
 f.close()
-'''
+
 
 # Main Program
 while True:
@@ -44,6 +44,15 @@ while True:
     CusStAdd = input("Enter customer's street address: ").title()
     CusCity = input("Enter the city: ").title()
 
+    valid_provinces = ["AB", "BC", "MB", "NB", "NL", "NT", "NS", "NU", "ON", "PE", "QB", "SK", "YK"]
+
+    while True:
+        CusProv = input("Enter the province(XX): ").upper()
+        if CusProv not in valid_provinces:
+            print("Error - Province is invalid.")
+        else:
+            break
+
     while True:
         allowed_letters = set("ABCDEFGHIJKLMONPQRSTUVWXYZ")
         allowed_numbers = set("0123456789")
@@ -67,14 +76,7 @@ while True:
         else:
             break
 
-    valid_provinces = ["AB", "BC", "MB", "NB", "NL", "NT", "NS", "NU", "ON", "PE", "QB", "SK", "YK"]
 
-    while True:
-        CusProv = input("Enter the province(XX): ").upper()
-        if CusProv not in valid_provinces:
-            print("Error - Province is invalid.")
-        else:
-            break
 
     while True: 
         CusPhoneNum = input("Enter the phone number (999999999): ")
@@ -94,4 +96,8 @@ while True:
     OptLoaner = input("Enter Y or N for loaner car: ").upper()
 
 
-   
+# Calculations
+    if NumCars == 0:
+        InsurancePremium = BASIC_PREMIUM
+    else:
+        InsurancePremium = BASIC_PREMIUM + (NumCars * )
